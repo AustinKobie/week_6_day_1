@@ -8,12 +8,12 @@ class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = StringField('Confirm Password', validators=[DataRequired(), EqualTo('Password')])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
     
 class SignInForms(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(), EqualTo('Password', message="passwords must match")])
+    password = PasswordField('Password', validators=[DataRequired(), EqualTo('password', message="passwords must match")])
     submit = SubmitField('Sign In')
     
 class CarForm(FlaskForm):
